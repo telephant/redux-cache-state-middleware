@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "lib": [
+      "ES2015",
+    ],
+    "target": "ES5",
+    "module": "ES6",
+    "allowJs": true,
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "test",
+    "node_modules"
+  ],
+  "include": [
+    "src"
+  ],
+}

@@ -1,0 +1,32 @@
+{
+  "name": "redux-cache-state-middleware",
+  "version": "1.0.0",
+  "description": "A middleware of redux npm package, that can cache the old state, to avoid next other operation and improve effective.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telephant/redux-cache-state-middleware.git"
+  },
+  "keywords": [
+    "redux",
+    "middleware",
+    "cache"
+  ],
+  "author": "telephant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/telephant/redux-cache-state-middleware/issues"
+  },
+  "homepage": "https://github.com/telephant/redux-cache-state-middleware#readme",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "redux-mock-store": "^1.5.4",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
