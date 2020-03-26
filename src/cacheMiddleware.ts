@@ -63,7 +63,7 @@ export const createCacheStateMiddleware = <A extends {
 
       const hitAction = config.find((item: CacheConfigItemType) => item.action === type);
       // not found action in cache-config, go next middleware.
-      if (hitAction !== undefined) {
+      if (hitAction !== undefined && midAPI.getState()) {
         const oldState = getChainDataByVarKey(midAPI.getState(), hitAction.state);
         if (callback) {
           callback(oldState, midAPI.getState(), hitAction);

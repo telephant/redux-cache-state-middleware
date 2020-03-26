@@ -1,29 +1,47 @@
+import configureStore from 'redux-mock-store'
+import {
+  assertions,
+  registerMiddlewares,
+  buildInitialStoreState,
+  registerInitialStoreState,
+} from 'redux-actions-assertions';
+import { registerAssertions } from 'redux-actions-assertions/expect';
 import { createCacheStateMiddleware } from '../src/cacheMiddleware';
 
-const next = jest.fn((action) => {
-  console.log('next action');
-  return true;
-});
+// redux cache config.
+const config = [
+  {
+    action: 'test2',
+    state: 'name',
+  },
+];
+
+registerAssertions();
+registerMiddlewares([
+  createCacheStateMiddleware(config),
+]);
+registerInitialStoreState({ name: 'initial name' });
+
+// registerInitialStoreState(buildInitialStoreState((state, action) => {
+//   switch (action.type) {
+//     case 'test':
+//       return { name: 'reduce name' };
+//   }
+//   return { name: 'none' };
+// }));
 
 test('should not hit cache', () => {
-  const initialState = {
-    test: 'test name',
-  };
-  const action = jest.fn();
-  const mockStore = {
-    getState: jest.fn(() => (initialState)),
-    dispatch: jest.fn(),
-    subscribe: jest.fn(),
-  }
-  const config = [
-    {
-      action: 'queryWarehouseListAction',
-      state: 'query.warehouseList',
+  const getAction = () => ({
+    type: 'test',
+  });
+
+  assertions.toDispatchActionsWithState(
+    (init) => {
+      return { name: 'change name'};
     },
-  ];
-
-  const middleware = createCacheStateMiddleware(config);
-  const res = middleware(mockStore)(next)(action);
-  expect(res).toBe(true);
-})
-
+    getAction(),
+    [{
+      type: 'test',
+    }],
+  );
+});

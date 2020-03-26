@@ -2,10 +2,11 @@
   "compilerOptions": {
     "outDir": "./build",
     "lib": [
-      "ES2015",
+      "es6",
+      "dom"
     ],
-    "target": "ES5",
-    "module": "ES6",
+    "target": "es5",
+    "module": "es6",
     "allowJs": true,
     "noImplicitAny": true
   },
