@@ -2,7 +2,7 @@
   "name": "redux-cache-state-middleware",
   "version": "1.0.0",
   "description": "A middleware of redux npm package, that can cache the old state, to avoid next other operation and improve effective.",
-  "main": "index.js",
+  "main": "/dist/index.js",
   "scripts": {
     "test": "jest"
   },
